@@ -8,7 +8,7 @@ const startBtn = document.querySelector('button[data-start]');
 const datetimeDays = document.querySelector('.value[data-days]');
 const datetimeHours = document.querySelector('.value[data-hours]');
 const datetimeMinutes = document.querySelector('.value[data-minutes]');
-const datetimeSecondes = document.querySelector('.value[data-seconds]');
+const datetimeSeconds = document.querySelector('.value[data-seconds]');
 startBtn.addEventListener('click', handleStart);
 
 startBtn.disabled = true;
@@ -49,23 +49,23 @@ function handleStart() {
     if (deltaTime <= 0) {
       clearInterval(intervalId);
       datetimePicker.disabled = false;
-      datetimeDays.textContent = '00';
-      datetimeHours.textContent = '00';
-      datetimeMinutes.textContent = '00';
-      datetimeSecondes.textContent = '00';
+      datetimeDays.textContent = addLeadingZero(0);
+      datetimeHours.textContent = addLeadingZero(0);
+      datetimeMinutes.textContent = addLeadingZero(0);
+      datetimeSeconds.textContent = addLeadingZero(0);
       iziToast.show({
-        message: 'finish',
+        message: 'Timer finished',
         backgroundColor: 'green',
         messageColor: '#fff',
         position: 'topRight',
       });
       return;
     }
-    const ojbTime = convertMs(deltaTime);
-    datetimeDays.textContent = addLeadingZero(ojbTime.days);
-    datetimeHours.textContent = addLeadingZero(ojbTime.hours);
-    datetimeMinutes.textContent = addLeadingZero(ojbTime.minutes);
-    datetimeSecondes.textContent = addLeadingZero(ojbTime.seconds);
+    const objTime = convertMs(deltaTime);
+    datetimeDays.textContent = addLeadingZero(objTime.days);
+    datetimeHours.textContent = addLeadingZero(objTime.hours);
+    datetimeMinutes.textContent = addLeadingZero(objTime.minutes);
+    datetimeSeconds.textContent = addLeadingZero(objTime.seconds);
   }, 1000);
 }
 
