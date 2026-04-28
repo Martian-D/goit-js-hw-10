@@ -49,10 +49,10 @@ function handleStart() {
     if (deltaTime <= 0) {
       clearInterval(intervalId);
       datetimePicker.disabled = false;
-      datetimeDays.textContent = '0';
-      datetimeHours.textContent = '0';
-      datetimeMinutes.textContent = '0';
-      datetimeSecondes.textContent = '0';
+      datetimeDays.textContent = '00';
+      datetimeHours.textContent = '00';
+      datetimeMinutes.textContent = '00';
+      datetimeSecondes.textContent = '00';
       iziToast.show({
         message: 'finish',
         backgroundColor: 'green',
